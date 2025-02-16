@@ -52,7 +52,7 @@ const Banner = () => {
                             <img
                                 src={slide.image}
                                 alt={slide.title}
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-cover brightness-100"
                             />
                             <div className="absolute inset-0 bg-black bg-opacity-40">
                                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4">
@@ -63,7 +63,7 @@ const Banner = () => {
                                         <p className="text-sm sm:text-base lg:text-lg text-white opacity-90 animate-slide-up-delayed">
                                             {slide.description}
                                         </p>
-                                        <button className="mt-6 px-8 py-3 bg-orange-500 text-white hover:bg-orange-600 transition-all duration-300 animate-fade-in-delayed">
+                                        <button className="mt-6 px-8 py-3 bg-rose-500 text-white hover:bg-rose-700 transition-all duration-300 animate-fade-in-delayed">
                                             Shop Now
                                         </button>
                                     </div>

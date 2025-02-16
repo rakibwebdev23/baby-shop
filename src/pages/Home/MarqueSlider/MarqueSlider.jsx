@@ -19,12 +19,12 @@ const MarqueeSlider = () => {
     };
 
     return (
-        <div className="relative py-10 bg-white">
+        <div className="relative py-10">
             <Marquee
                 gradient={false}
                 speed={40}
                 pauseOnHover={true}
-                className="overflow-hidden border-2 py-10"
+                className="overflow-hidden border-2 py-10 bg-gray-100"
             >
                 <div className="flex items-center gap-x-16 px-4">
                     {items.map((item, index) => (
