@@ -11,7 +11,7 @@ const Navbar = () => {
     </>;
 
     return (
-        <div className="bg-white shadow-md py-4">
+        <div className="bg-white shadow-md py-4 w-full">
             <Container>
                 <div className="navbar text-black">
                     {/* Mobile Menu */}
