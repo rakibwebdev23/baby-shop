@@ -15,7 +15,7 @@ const NewProduct = () => {
             <div className="pt-14">
                 <SectionTitle title="New" subTitle="collection"></SectionTitle>
             </div>
-            <div className="py-10 bg-gray-50 px-4 lg:px-12 rounded-lg">
+            <div className="py-10 bg-gray-100 shadow px-4 lg:px-12 rounded-lg">
                 <Swiper
                     slidesPerView={1}
                     spaceBetween={20}
