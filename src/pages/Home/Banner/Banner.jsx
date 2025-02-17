@@ -63,7 +63,7 @@ const Banner = () => {
                                         <p className="text-sm sm:text-base lg:text-lg text-white opacity-90 animate-slide-up-delayed">
                                             {slide.description}
                                         </p>
-                                        <button className="mt-6 px-8 py-3 bg-rose-500 text-white hover:bg-rose-700 transition-all duration-300 animate-fade-in-delayed">
+                                        <button className='py-4 px-8 bg-[#FF9B9B] mt-2 text-white rounded-lg font-semibold transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-[#FF8080]'>
                                             Shop Now
                                         </button>
                                     </div>

@@ -13,7 +13,7 @@ const Cart = ({ item }) => {
                     loading="lazy"
                 />
                 <div className="absolute inset-0 bg-pink-400/40 opacity-0 group-hover:opacity-100">
-                    <button className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-orange-500 px-4 py-2 text-sm font-medium text-white rounded">
+                    <button className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#FF8080] px-4 py-2 text-sm font-medium text-white rounded">
                         Add to Cart
                     </button>
                 </div>
@@ -22,7 +22,7 @@ const Cart = ({ item }) => {
                 <p className="text-xs text-gray-500">{category}</p>
                 <p className="text-xs text-gray-400 mt-1">#{productNumber}</p>
                 <h2 className="mt-1 text-sm lg:text-xl font-medium text-gray-900 truncate">{name}</h2>
-                <p className="mt-1 text-sm font-bold text-orange-600 group-hover:opacity-0">
+                <p className="mt-1 text-sm font-bold text-[#FF8080]">
                     ${price}
                 </p>
             </div>

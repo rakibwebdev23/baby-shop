@@ -55,7 +55,7 @@ const Navbar = () => {
                             </svg>
                             <span className="absolute top-0 right-0 bg-pink-600 text-white text-xs rounded-full px-1">3</span>
                         </Link>
-                        <Link to="/login" className="py-2 px-4 lg:px-8 rounded ml-2 bg-pink-600 text-white hover:bg-pink-700">Login</Link>
+                        <Link to="/login" className="py-2 px-4 lg:px-8 rounded ml-2 bg-[#FF8080] text-white hover:bg-[#f97373]">Login</Link>
                     </div>
                 </div>
             </Container>
