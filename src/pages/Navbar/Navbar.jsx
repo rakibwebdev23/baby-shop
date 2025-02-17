@@ -5,13 +5,13 @@ import logo from "../../assets/logo.png";
 const Navbar = () => {
     const navlinks = <>
         <li><Link to="/" className="hover:text-gray-600">Home</Link></li>
-        <li><Link to="/shop" className="hover:text-gray-600">Shop</Link></li>
+        <li><Link to="/products" className="hover:text-gray-600">Shop</Link></li>
         <li><Link to="/about" className="hover:text-gray-600">About Us</Link></li>
         <li><Link to="/contact" className="hover:text-gray-600">Contact</Link></li>
     </>;
 
     return (
-        <div className="bg-white/90 shadow-lg py-4 w-full">
+        <div className="bg-white/90 shadow py-4 w-full">
             <Container>
                 <div className="navbar text-black">
                     {/* Mobile Menu */}
