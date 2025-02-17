@@ -24,7 +24,7 @@ const MarqueeSlider = () => {
                 gradient={false}
                 speed={40}
                 pauseOnHover={true}
-                className="overflow-hidden border-2 py-10 bg-gray-100"
+                className="overflow-hidden border-2 py-10 bg-white/90"
             >
                 <div className="flex items-center gap-x-16 px-4">
                     {items.map((item, index) => (

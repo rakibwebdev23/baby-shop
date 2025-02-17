@@ -20,8 +20,6 @@ const useProducts = () => {
     const healthProducts = products.filter(product => product.category === "health");
     const travelProducts = products.filter(product => product.category === "travel");
     const groomingProducts = products.filter(product => product.category === "grooming");
-    console.log("all products",products, offeredProducts, newProducts, clothingProducts, toysProducts, feedingProducts, nurseryProducts, healthProducts, travelProducts, groomingProducts);
-    
 
     return [products, refetch, offeredProducts, newProducts, clothingProducts, toysProducts, feedingProducts, nurseryProducts, healthProducts, travelProducts, groomingProducts];
 };
