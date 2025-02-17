@@ -1,5 +1,6 @@
 import Banner from "../Banner/Banner";
 import MarqueSlider from "../MarqueSlider/MarqueSlider";
+import NewProduct from "../NewProduct/NewProduct";
 import OfferItem from "../OfferItem/OfferItem";
 import Parallax from "../Parallax/Parallax";
 
@@ -10,6 +11,7 @@ const Home = () => {
             <MarqueSlider></MarqueSlider>
             <OfferItem></OfferItem>
             <Parallax></Parallax>
+            <NewProduct></NewProduct>
         </div>
     );
 };

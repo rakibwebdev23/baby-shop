@@ -8,7 +8,7 @@ const OfferItem = () => {
 
     return (
         <Container>
-            <SectionTitle title="Offered"></SectionTitle>
+            <SectionTitle title="Offered" subTitle="Item"></SectionTitle>
                 <div className="lg:grid lg:grid-cols-3 gap-4 justify-center mx-auto">
                     {
                         offeredProducts.map(item => <Cart

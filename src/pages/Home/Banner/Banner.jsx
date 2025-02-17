@@ -57,7 +57,7 @@ const Banner = () => {
                             <div className="absolute inset-0 bg-black bg-opacity-40">
                                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4">
                                     <div className="text-center animate-fade-in">
-                                        <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-4 text-orange-300 animate-slide-up">
+                                        <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-4 text-white animate-slide-up">
                                             {slide.title}
                                         </h2>
                                         <p className="text-sm sm:text-base lg:text-lg text-white opacity-90 animate-slide-up-delayed">
