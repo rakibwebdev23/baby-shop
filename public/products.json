@@ -439,5 +439,23 @@
         "image": "https://i.ibb.co.com/WptLP98F/feed2.jpg",
         "tags": ["bib", "feeding", "silicone"],
         "category": "new"
+    },
+    {
+        "productNumber": "BG004",
+        "name": "Baby Bath Toys",
+        "price": 12.99,
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+        "image": "https://i.ibb.co.com/ZznkBWh3/grooming2.jpg",
+        "tags": ["toys", "bath", "fun"],
+        "category": "new"
+    },
+    {
+        "productNumber": "FD005",
+        "name": "Baby Snack Cup",
+        "price": 6.99,
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+        "image": "https://i.ibb.co.com/yFmPGq53/feed5.jpg",
+        "tags": ["snack cup", "feeding", "spill-proof"],
+        "category": "new"
     }
 ]
