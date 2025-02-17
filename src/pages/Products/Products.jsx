@@ -49,15 +49,12 @@ const Products = () => {
                                         key={index}
                                         className="group flex items-center p-3 lg:p-4 rounded-xl cursor-pointer transition-all duration-200
                                             text-sm lg:text-base font-medium
-                                            hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#FF9B9B] focus:ring-offset-2
+                                            hover:bg-gray-100 focus:outline-none
                                             aria-selected:bg-[#FF8080] aria-selected:text-white aria-selected:shadow-md
                                             whitespace-nowrap lg:whitespace-normal"
                                     >
                                         <span className="flex-1">{name}</span>
-                                        <span className="hidden lg:inline-flex items-center justify-center w-6 h-6 text-xs 
-                                            group-aria-selected:bg-[#FF6B6B] bg-gray-200 rounded-full ml-2 transition-colors">
-                                            {index + 1}
-                                        </span>
+                                        
                                     </Tab>
                                 ))}
                             </TabList>
