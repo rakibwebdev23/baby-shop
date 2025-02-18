@@ -39,7 +39,7 @@ const Register = () => {
             })
             .catch(error => console.log(error));
     };
-    
+
     return (
         <div>
             <div className="hero-overlay bg-black bg-opacity-60 w-full min-h-screen flex items-center justify-center px-4">
