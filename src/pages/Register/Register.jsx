@@ -1,9 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
-import SocialSign from "../../../component/SocialSign/SocialSign";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAuth from "../../hooks/useAuth";
+import SocialSign from "../../components/SocialSign/SocialSign";
 const Register = () => {
 
     const { createUser, updateUserProfile } = useAuth();
@@ -30,7 +30,7 @@ const Register = () => {
                                         title: "Good job!",
                                         text: "You have successfully registered!",
                                         icon: "success",
-                                      });
+                                    });
                                     navigate("/");
                                 }
                             });
@@ -42,46 +42,46 @@ const Register = () => {
 
     return (
         <div>
-            <div className="hero-overlay bg-black bg-opacity-60 w-full min-h-screen flex items-center justify-center px-4">
-                <div className="card bg-black bg-opacity-70 p-8 sm:p-12 lg:w-full xl:w-1/2 max-w-screen-xl w-full rounded-xl shadow-xl">
-                    <h2 className="text-orange-500 text-3xl sm:text-4xl font-bold text-center mb-6">Sign Up</h2>
-                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            <div className="bg-base-200 flex items-center justify-center py-16">
+                <div className="bg-white w-96 p-8 rounded shadow-lg">
+                    <h2 className="text-2xl font-semibold text-gray-800 mb-2 text-center">Register</h2>
+                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                         <div className="form-control">
-                            <label className="label">
-                                <span className="label-text text-white">Name</span>
+                            <label className="block text-gray-600 text-sm font-medium mb-2">
+                                Name
                             </label>
                             <input
                                 type="text"
                                 placeholder="Your name"
-                                className="input input-bordered w-full p-4 text-black rounded-lg"
+                                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
                                 {...register("name", { required: "Name is required" })}
                             />
                             {errors.name && <span className="text-red-600 text-sm">{errors.name.message}</span>}
                         </div>
 
                         <div className="form-control">
-                            <label className="label">
-                                <span className="label-text text-white">Email</span>
+                            <label className="block text-gray-600 text-sm font-medium mb-2">
+                                Email
                             </label>
                             <input
                                 name="email"
                                 type="email"
                                 placeholder="Enter your email"
-                                className="input input-bordered w-full p-4 text-black rounded-lg"
+                                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
                                 {...register("email", { required: "Email is required" })}
                             />
                             {errors.email && <span className="text-red-600 text-sm">{errors.email.message}</span>}
                         </div>
 
                         <div className="form-control">
-                            <label className="label">
-                                <span className="label-text text-white">Password</span>
+                            <label className="block text-gray-600 text-sm font-medium mb-2">
+                                Password
                             </label>
                             <input
                                 name="password"
                                 type="password"
                                 placeholder="Enter your password"
-                                className="input input-bordered w-full p-4 text-black rounded-lg"
+                                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
                                 {...register("password", {
                                     required: "Password is required",
                                     minLength: { value: 6, message: "Password must be at least 6 characters" },
@@ -97,19 +97,19 @@ const Register = () => {
 
                         <div className="form-control mt-6">
                             <input
-                                className="relative w-full py-3 text-white border-2 border-transparent bg-orange-600 transition-all duration-300 hover:border-orange-600 hover:bg-transparent hover:text-orange-600 rounded-lg"
+                                className="w-full bg-[#FF8080] hover:bg-[#f97373] text-white py-2 px-4 rounded focus:outline-none font-medium"
                                 type="submit"
-                                value="Sign Up"
+                                value="Register"
                             />
                         </div>
 
                         <SocialSign />
 
-                        <p className="text-white mt-2 text-center">
+                        <p className="text-gray-600 text-sm text-center">
                             Already have an account?{" "}
-                            <Link className="text-blue-600 font-bold hover:underline" to="/signin">
-                                Sign In
-                            </Link>
+                            <a href="/login" className="text-[#B3282D]">
+                                Login
+                            </a>
                         </p>
                     </form>
                 </div>

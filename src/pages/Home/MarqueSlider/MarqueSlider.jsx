@@ -15,7 +15,7 @@ const MarqueeSlider = () => {
         if (iconType === "heart") {
             return <FaHeart className="text-[#b4d4d7]" size={28} />;
         }
-        return <FaStar className="text-[#e7c697]" size={28}/>;
+        return <FaStar className="text-[#e7c697]" size={28} />;
     };
 
     return (
@@ -23,7 +23,6 @@ const MarqueeSlider = () => {
             <Marquee
                 gradient={false}
                 speed={40}
-                pauseOnHover={true}
                 className="overflow-hidden border-2 py-10 bg-white/90"
             >
                 <div className="flex items-center gap-x-16 px-4">

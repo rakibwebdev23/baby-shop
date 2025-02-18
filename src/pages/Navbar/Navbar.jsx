@@ -1,14 +1,23 @@
 import { Link } from "react-router-dom";
 import Container from "../../components/Container/Container";
 import logo from "../../assets/logo.png";
+import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
+    const { user, logOut } = useAuth();
+
     const navlinks = <>
         <li><Link to="/" className="hover:text-gray-600">Home</Link></li>
         <li><Link to="/products" className="hover:text-gray-600">Shop</Link></li>
         <li><Link to="/about" className="hover:text-gray-600">About Us</Link></li>
         <li><Link to="/contact" className="hover:text-gray-600">Contact</Link></li>
     </>;
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch((error) => console.log(error));
+    };
 
     return (
         <div className="bg-white/90 shadow py-4 w-full">
@@ -55,7 +64,18 @@ const Navbar = () => {
                             </svg>
                             <span className="absolute top-0 right-0 bg-pink-600 text-white text-xs rounded-full px-1">3</span>
                         </Link>
-                        <Link to="/login" className="py-2 px-4 lg:px-8 rounded ml-2 bg-[#FF8080] text-white hover:bg-[#f97373]">Login</Link>
+                        {
+                            user ? <>
+                                <Link onClick={() => handleLogOut()} className="py-2 px-4 lg:px-6 rounded ml-2 bg-[#FF8080] text-white hover:bg-[#f97373]">Log Out</Link>
+                                {user.photoURL && (
+                                    <div className="avatar ml-4">
+                                        <div className="w-12 rounded-full">
+                                            <img src={user.photoURL} alt="User Avatar" />
+                                        </div>
+                                    </div>
+                                )}
+                            </> : <Link to="/login" className="py-2 px-4 lg:px-6 rounded ml-2 bg-[#FF8080] text-white hover:bg-[#f97373]">Login</Link>
+                        }
                     </div>
                 </div>
             </Container>
