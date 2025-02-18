@@ -6,7 +6,8 @@ const Cart = ({ item }) => {
             <div className="aspect-w-1 aspect-h-1 overflow-hidden">
                 <img className="h-48 w-full object-cover rounded-t-md" src={image} alt={name} loading="lazy" />
                 <div className="absolute inset-0 bg-pink-300/40 opacity-0 group-hover:opacity-100">
-                    <button className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#fa6f6f] hover:bg-[#f45e5e] px-4 py-2 text-sm font-medium text-white rounded">                         Add to Cart
+                    <button className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#fa6f6f] hover:bg-[#f45e5e] px-4 py-2 text-sm font-medium text-white rounded">
+                        Add to Cart
                     </button>
                 </div>
             </div>

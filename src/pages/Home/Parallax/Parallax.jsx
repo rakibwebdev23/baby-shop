@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import Container from "../../../components/Container/Container";
-import img from "../../../assets/products/cloths/cloth3.jpg"
+import img from "../../../assets/cloth3.jpg"
 
 const Parallax = () => {
     const stats = [

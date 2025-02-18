@@ -1,5 +1,5 @@
 import useProducts from "../../hooks/useProducts";
-import img from "../../assets/products/nursery/nursery4.jpg";
+import img from "../../assets/nursery4.jpg";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import Product from "../../components/Product/Product";
 
@@ -26,7 +26,7 @@ const Products = () => {
                     className="absolute inset-0 bg-cover bg-center transform hover:scale-105 transition-transform duration-700"
                     style={{ backgroundImage: `url("${img}")` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-black/50" />
                 <div className="relative h-full flex flex-col justify-center items-center text-white px-4 space-y-6">
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center">
                         Discover Our Collection
@@ -54,7 +54,7 @@ const Products = () => {
                                             whitespace-nowrap lg:whitespace-normal"
                                     >
                                         <span className="flex-1">{name}</span>
-                                        
+
                                     </Tab>
                                 ))}
                             </TabList>
