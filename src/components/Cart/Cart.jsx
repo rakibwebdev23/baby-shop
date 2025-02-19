@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const Cart = ({ item }) => {
-    const { image, name, price, category, productNumber } = item;
+    const { image, name, price, category, productNumber, _id } = item;
 
     return (
         <div className="group relative rounded-lg overflow-hidden border border-gray-200 bg-white shadow-sm hover:shadow-md transition-all duration-300">
@@ -19,12 +19,12 @@ const Cart = ({ item }) => {
                 />
                 <div className="absolute inset-0 bg-[#FF9B9B] bg-opacity-30 opacity-0 group-hover:opacity-100 transition-all duration-150">
                     <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-4">
-                        <Link to={`/product/${productNumber}`} className="w-1/2">
+                        <Link to={`/products/${_id}`} className="w-1/2">
                             <button className="w-full bg-white hover:bg-gray-50 text-[#ff7474] py-2 rounded-md text-sm font-medium transition-colors">
                                 View Details
                             </button>
                         </Link>
-                        <Link to="/cart" className="w-1/2">
+                        <Link to={``} className="w-1/2">
                             <button className="w-full bg-[#FF8080] hover:bg-[#ff7272] text-white py-2 rounded-md text-sm font-medium transition-colors">
                                 Add to Cart
                             </button>
