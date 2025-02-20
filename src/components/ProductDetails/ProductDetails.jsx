@@ -11,6 +11,7 @@ const ProductDetails = () => {
     const item = useLoaderData();
     const { _id, image, name, price, category, productNumber, description, tags } = item;
     const [products] = useProducts();
+    const offeredProducts = products.filter(product => product.category === category);
     const [quantity, setQuantity] = useState(1);
     const [, refetch] = useCartCollection();
     const { user } = useAuth();
@@ -21,9 +22,9 @@ const ProductDetails = () => {
 
     // pagination
     const itemsPerPage = 6;
-    const pageCount = Math.ceil(products.length / itemsPerPage);
+    const pageCount = Math.ceil(offeredProducts.length / itemsPerPage);
     const offset = currentPage * itemsPerPage;
-    const currentItems = products.slice(offset, offset + itemsPerPage);
+    const currentItems = offeredProducts.slice(offset, offset + itemsPerPage);
 
     const incrementQuantity = () => {
         setQuantity(quantity + 1);
@@ -83,7 +84,7 @@ const ProductDetails = () => {
     const getPageNumbers = () => {
         let pages = [];
         const maxVisiblePages = 5;
-        
+
         if (pageCount <= maxVisiblePages) {
             for (let i = 0; i < pageCount; i++) {
                 pages.push(i);
@@ -94,8 +95,7 @@ const ProductDetails = () => {
             }
             pages.push('ellipsis');
             pages.push(pageCount - 1);
-        } else if (currentPage >= pageCount - 3)
-        {
+        } else if (currentPage >= pageCount - 3) {
             pages.push(0);
             pages.push('ellipsis');
             for (let i = pageCount - 3; i < pageCount; i++) {
@@ -110,7 +110,7 @@ const ProductDetails = () => {
             pages.push('ellipsis');
             pages.push(pageCount - 1);
         }
-        
+
         return pages;
     };
 
@@ -186,7 +186,10 @@ const ProductDetails = () => {
                                     alt={product.name}
                                     className="w-full h-48 object-cover mb-4 rounded"
                                 />
-                                <h4 className="font-medium text-base lg:text-xl">{product.name}</h4>
+                                <div className="flex justify-between items-center">
+                                    <h4 className="font-medium text-base lg:text-xl">{product.name}</h4>
+                                    <p className="text-xs py-1 px-3 bg-[#FF8080] rounded-tl-md rounded-br-md uppercase text-white">{product.category}</p>
+                                </div>
                                 <p className="text-[#ff7272] font-bold">${product.price}</p>
 
                                 <div className="flex items-center mt-3 gap-2">
@@ -208,7 +211,7 @@ const ProductDetails = () => {
                 {pageCount > 1 && (
                     <div className="flex justify-center mt-8">
                         <div className="flex items-center gap-2">
-                            <button 
+                            <button
                                 onClick={() => setCurrentPage(Math.max(0, currentPage - 1))}
                                 disabled={currentPage === 0}
                                 className={`px-3 py-1 rounded border ${currentPage === 0 ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : 'bg-white text-gray-700 hover:bg-gray-50'}`}
@@ -216,7 +219,7 @@ const ProductDetails = () => {
                                 <span className="hidden sm:inline">Previous</span>
                                 <span className="sm:hidden">←</span>
                             </button>
-                            
+
                             {/* Page numbers */}
                             <div className="flex items-center gap-1">
                                 {getPageNumbers().map((page, index) => (
@@ -233,9 +236,9 @@ const ProductDetails = () => {
                                     )
                                 ))}
                             </div>
-                            
+
                             {/* Next button */}
-                            <button 
+                            <button
                                 onClick={() => setCurrentPage(Math.min(pageCount - 1, currentPage + 1))}
                                 disabled={currentPage === pageCount - 1}
                                 className={`px-3 py-1 rounded border ${currentPage === pageCount - 1 ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : 'bg-white text-gray-700 hover:bg-gray-50'}`}

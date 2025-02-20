@@ -50,7 +50,7 @@ const Product = ({ items }) => {
     };
 
     return (
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
             <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-8 gap-6 mb-10">
                 {currentProducts.map((item) => (
                     <ProductCart key={item._id} item={item} />
