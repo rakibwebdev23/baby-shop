@@ -66,11 +66,11 @@ const ProductCart = ({ item }) => {
                     </button>
                 </div>
             </div>
-            <div className="p-3">
-                <p className="text-xs text-gray-500">{category}</p>
+            <div className="p-3 text-center">
+                <p className="text-xs text-gray-500 uppercase">{category}</p>
                 <p className="text-xs text-gray-400 mt-1">#{productNumber}</p>
                 <h2 className="mt-1 text-sm lg:text-xl font-medium text-gray-900 truncate">{name}</h2>
-                <p className="mt-1 text-sm font-bold text-[#FF9B9B]">$ {price}</p>
+                <p className="mt-1 text-sm font-bold text-[#ff7272]">$ {price}</p>
             </div>
         </div>
     );
