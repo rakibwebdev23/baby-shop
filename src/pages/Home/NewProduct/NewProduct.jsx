@@ -47,7 +47,7 @@ const NewProduct = () => {
                                         <p className="mt-1 text-sm font-bold text-[#FF9B9B]">
                                             ${product.price}
                                         </p>
-                                        <Link>
+                                        <Link to={`/products/${product._id}`}>
                                             <button className="mt-3 px-4 py-2 w-full bg-[#FF9B9B] text-white text-sm font-semibold rounded hover:bg-[#FF8080] transition">
                                                 View More
                                             </button>
