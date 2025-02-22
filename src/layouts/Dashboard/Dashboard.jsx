@@ -1,8 +1,9 @@
-import { FaHome } from "react-icons/fa";
+import { FaHome, FaUsers } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
 import useCartCollection from "../../hooks/useCartCollection";
 import useAdmin from "../../hooks/useAdmin";
+import { IoCartSharp } from "react-icons/io5";
 
 const Dashboard = () => {
     const [carts] = useCartCollection();
@@ -20,11 +21,12 @@ const Dashboard = () => {
                     {isAdmin ? (
                         <>
                             <li><NavLink to="/dashboard/adminHome" className="flex items-center gap-2 text-white "><FaHome className="text-white" /> Admin Home</NavLink></li>
+                            <li><NavLink to="/dashboard/allUsers" className="flex items-center gap-2 text-white "><FaUsers className="text-white" /> All Users</NavLink></li>
                         </>
                     ) : (
                         <>
                             <li><NavLink to="/dashboard/userHome" className="flex items-center gap-2 text-white "><FaHome className="text-white" /> User Home</NavLink></li>
-                            <li><NavLink to="/dashboard/cart" className="flex items-center gap-2 text-white "><IoCartSharp className="text-white" /> My Cart({cart.length})</NavLink></li>
+                            <li><NavLink to="/dashboard/cart" className="flex items-center gap-2 text-white "><IoCartSharp className="text-white" /> My Cart({carts.length})</NavLink></li>
                         </>
                     )}
                     <div className="divider text-white"></div>

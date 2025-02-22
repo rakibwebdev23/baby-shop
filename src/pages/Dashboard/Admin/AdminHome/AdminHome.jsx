@@ -1,9 +1,8 @@
-import React from 'react';
 
 const AdminHome = () => {
     return (
         <div>
-            
+            <h2>admin</h2>
         </div>
     );
 };

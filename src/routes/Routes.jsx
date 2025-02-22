@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../layouts/Dashboard/Dashboard";
 import UserHome from "../pages/Dashboard/User/UserHome/UserHome";
 import AdminHome from "../pages/Dashboard/Admin/AdminHome/AdminHome";
+import AllUsers from "../pages/Dashboard/Admin/AllUsers/AllUsers";
 
 export const router = createBrowserRouter([
     {
@@ -42,7 +43,7 @@ export const router = createBrowserRouter([
     },
     {
         path: "dashboard",
-        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        element: <Dashboard></Dashboard>,
         errorElement: <Error></Error>,
         children: [
             // user related route 
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
             {
                 path: "adminHome",
                 element: <AdminHome></AdminHome>
+            },
+            {
+                path: "allUsers",
+                element: <AllUsers></AllUsers>
             }
         ]
     }
