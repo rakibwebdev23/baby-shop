@@ -6,8 +6,8 @@ import useCartCollection from "../../hooks/useCartCollection";
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
-    const [ carts ] = useCartCollection();
-
+    const [carts] = useCartCollection();
+    
     const navlinks = <>
         <li><Link to="/" className="hover:text-gray-600">Home</Link></li>
         <li><Link to="/products" className="hover:text-gray-600">Shop</Link></li>

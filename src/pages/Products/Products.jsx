@@ -44,17 +44,16 @@ const Products = () => {
                         <div className="sticky top-4">
                             <h3 className="text-xl font-bold mb-4 text-gray-800 px-2">Categories</h3>
                             <TabList className="flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0">
-                                {categories.map(({ name }, index) => (
+                                {categories.map(({ name, items }, index) => (
                                     <Tab
                                         key={index}
                                         className="group flex items-center p-3 lg:p-4 rounded-xl cursor-pointer transition-all duration-200
                                             text-sm lg:text-base font-medium
-                                            hover:bg-gray-100 focus:outline-none
+                                            hover:bg-gray-200 focus:outline-none
                                             aria-selected:bg-[#FF8080] aria-selected:text-white aria-selected:shadow-md
                                             whitespace-nowrap lg:whitespace-normal"
                                     >
-                                        <span className="flex-1">{name}</span>
-
+                                        <span className="flex-1">{name} ({ items.length})</span>
                                     </Tab>
                                 ))}
                             </TabList>
