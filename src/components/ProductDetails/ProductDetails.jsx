@@ -180,7 +180,7 @@ const ProductDetails = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {
                         currentItems.map((product) => (
-                            <div key={product.id} className="border border-gray-200 rounded-lg p-4 hover:shadow-md">
+                            <div key={product._id} className="border border-gray-200 rounded-lg p-4 hover:shadow-md">
                                 <img
                                     src={product.image}
                                     alt={product.name}

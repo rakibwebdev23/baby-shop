@@ -6,11 +6,8 @@ import Products from "../pages/Products/Products";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import ProductDetails from "../components/ProductDetails/ProductDetails";
-import PrivateRoute from "./PrivateRoute";
-import Dashboard from "../layouts/Dashboard/Dashboard";
-import UserHome from "../pages/Dashboard/User/UserHome/UserHome";
-import AdminHome from "../pages/Dashboard/Admin/AdminHome/AdminHome";
-import AllUsers from "../pages/Dashboard/Admin/AllUsers/AllUsers";
+import About from "../pages/About/About";
+import Contact from "../pages/Contact/Contact";
 
 export const router = createBrowserRouter([
     {
@@ -38,27 +35,14 @@ export const router = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login></Login>
-            }
-        ]
-    },
-    {
-        path: "dashboard",
-        element: <Dashboard></Dashboard>,
-        errorElement: <Error></Error>,
-        children: [
-            // user related route 
-            {
-                path: "userHome",
-                element: <UserHome></UserHome>
-            },
-            // admin related route 
-            {
-                path: "adminHome",
-                element: <AdminHome></AdminHome>
             },
             {
-                path: "allUsers",
-                element: <AllUsers></AllUsers>
+                path: "/about",
+                element: <About></About>
+            },
+            {
+                path: "/contact",
+                element: <Contact></Contact>
             }
         ]
     }
