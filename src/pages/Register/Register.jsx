@@ -1,29 +1,32 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAuth from "../../hooks/useAuth";
 import SocialSign from "../../components/SocialSign/SocialSign";
-const Register = () => {
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
+const Register = () => {
     const { createUser, updateUserProfile } = useAuth();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const navigate = useNavigate();
     const axiosPublic = useAxiosPublic();
+    const [showPassword, setShowPassword] = useState(false);
 
-    const onSubmit = data => {
+    const onSubmit = (data) => {
         createUser(data.email, data.password)
-            .then(result => {
+            .then((result) => {
                 const loggedUser = result.user;
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         const userInfo = {
                             name: loggedUser.displayName,
-                            email: loggedUser.email
+                            email: loggedUser.email,
                         };
 
-                        axiosPublic.post('/users', userInfo)
-                            .then(res => {
+                        axiosPublic.post("/users", userInfo)
+                            .then((res) => {
                                 if (res.data.insertedId) {
                                     reset();
                                     Swal.fire({
@@ -35,9 +38,9 @@ const Register = () => {
                                 }
                             });
                     })
-                    .catch(error => console.log(error));
+                    .catch((error) => console.log(error));
             })
-            .catch(error => console.log(error));
+            .catch((error) => console.log(error));
     };
 
     return (
@@ -73,13 +76,13 @@ const Register = () => {
                             {errors.email && <span className="text-red-600 text-sm">{errors.email.message}</span>}
                         </div>
 
-                        <div className="form-control">
+                        <div className="form-control relative">
                             <label className="block text-gray-600 text-sm font-medium mb-2">
                                 Password
                             </label>
                             <input
                                 name="password"
-                                type="password"
+                                type={showPassword ? "text" : "password"}
                                 placeholder="Enter your password"
                                 className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
                                 {...register("password", {
@@ -88,10 +91,16 @@ const Register = () => {
                                     maxLength: { value: 20, message: "Password must be less than 20 characters" },
                                     pattern: {
                                         value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
-                                        message: "Password must have one Uppercase, one Lowercase, and one Special character"
-                                    }
+                                        message: "Password must have one Uppercase, one Lowercase, and one Special character",
+                                    },
                                 })}
                             />
+                            <span
+                                className="absolute right-3 top-10 cursor-pointer"
+                                onClick={() => setShowPassword(!showPassword)}
+                            >
+                                {showPassword ? <FaEye/>  : <FaEyeSlash/>}
+                            </span>
                             {errors.password && <span className="text-red-600 text-sm">{errors.password.message}</span>}
                         </div>
 

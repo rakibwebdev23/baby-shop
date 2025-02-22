@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import SocialSign from "../../components/SocialSign/SocialSign";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -10,17 +12,17 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
+    const [showPassword, setShowPassword] = useState(false);
 
     const onSubmit = data => {
         const email = data.email;
         const password = data.password;
         signInUser(email, password)
             .then(result => {
-                const user = result.user;
                 reset();
                 Swal.fire({
                     title: "Good job !",
-                    text: "You you have successfully login !",
+                    text: "You have successfully logged in!",
                     icon: "success",
                 });
                 navigate(from, { replace: true });
@@ -40,7 +42,6 @@ const Login = () => {
                             Email
                         </label>
                         <input
-                            name="email"
                             type="email"
                             placeholder="Enter your email"
                             className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
@@ -48,18 +49,22 @@ const Login = () => {
                         />
                         {errors.email && <span className="text-red-600 text-sm">{errors.email.message}</span>}
                     </div>
-
-                    <div className="form-control">
+                    <div className="form-control relative">
                         <label className="block text-gray-600 text-sm font-medium mb-2">
                             Password
                         </label>
                         <input
-                            name="password"
-                            type="password"
+                            type={showPassword ? "text" : "password"}
                             placeholder="Enter your password"
                             className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
                             {...register("password", { required: "Password is required" })}
                         />
+                        <span
+                            className="absolute right-3 top-10 cursor-pointer text-gray-600"
+                            onClick={() => setShowPassword(!showPassword)}
+                        >
+                            {showPassword ? <FaEye /> : <FaEyeSlash />}
+                        </span>
                         {errors.password && <span className="text-red-600 text-sm">{errors.password.message}</span>}
                     </div>
 
