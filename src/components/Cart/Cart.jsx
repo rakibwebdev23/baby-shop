@@ -1,7 +1,59 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import useCartCollection from "../../hooks/useCartCollection";
+import useAuth from "../../hooks/useAuth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const Cart = ({ item }) => {
     const { image, name, price, category, productNumber, _id } = item;
+    const [, refetch] = useCartCollection();
+    const { user } = useAuth();
+    const axiosSecure = useAxiosSecure();
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const handleAddOrder = () => {
+        if (user && user?.email) {
+            const cartData = {
+                cartId: _id,
+                productNumber,
+                email: user.email,
+                category,
+                name,
+                image,
+                price
+            }
+
+            axiosSecure.post("/carts", cartData)
+                .then(res => {
+                    if (res.data.insertedId) {
+                        Swal.fire({
+                            position: "top-center",
+                            icon: "success",
+                            title: `${name} added to your cart`,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        refetch();
+                    }
+                })
+        }
+        else {
+            Swal.fire({
+                title: "You are not Sign In",
+                text: "Please Sign In & add to the cart",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Please! Sign In"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate("/login", { state: { from: location } })
+                }
+            });
+        }
+    }
 
     return (
         <div className="group relative rounded-lg overflow-hidden border border-gray-200 bg-white shadow-sm hover:shadow-md transition-all duration-300">
@@ -24,11 +76,11 @@ const Cart = ({ item }) => {
                                 View Details
                             </button>
                         </Link>
-                        <Link to={``} className="w-1/2">
-                            <button className="w-full bg-[#FF8080] hover:bg-[#ff7272] text-white py-2 rounded-md text-sm font-medium transition-colors">
+                        <div className="w-1/2">
+                            <button onClick={handleAddOrder} className="w-full bg-[#FF8080] hover:bg-[#ff7272] text-white py-2 rounded-md text-sm font-medium transition-colors">
                                 Add to Cart
                             </button>
-                        </Link>
+                        </div>
                     </div>
                 </div>
             </div>

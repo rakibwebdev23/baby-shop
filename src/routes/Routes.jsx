@@ -6,6 +6,10 @@ import Products from "../pages/Products/Products";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import ProductDetails from "../components/ProductDetails/ProductDetails";
+import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../layouts/Dashboard/Dashboard";
+import UserHome from "../pages/Dashboard/User/UserHome/UserHome";
+import AdminHome from "../pages/Dashboard/Admin/AdminHome/AdminHome";
 
 export const router = createBrowserRouter([
     {
@@ -33,6 +37,23 @@ export const router = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login></Login>
+            }
+        ]
+    },
+    {
+        path: "dashboard",
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        errorElement: <Error></Error>,
+        children: [
+            // user related route 
+            {
+                path: "userHome",
+                element: <UserHome></UserHome>
+            },
+            // admin related route 
+            {
+                path: "adminHome",
+                element: <AdminHome></AdminHome>
             }
         ]
     }
