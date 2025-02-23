@@ -21,7 +21,9 @@ const ProductCart = ({ item }) => {
                 category,
                 name,
                 image,
-                price
+                price,
+                date: moment().format('MMMM Do YYYY'),
+                time: moment().format('h:mm:ss a'),
             }
 
             axiosSecure.post("/carts", cartData)
