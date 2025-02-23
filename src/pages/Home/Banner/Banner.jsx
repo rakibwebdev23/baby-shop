@@ -4,24 +4,27 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import banner1 from "../../../assets/img1.jpg";
+import banner2 from "../../../assets/img2.jpg";
+import banner3 from "../../../assets/img3.jpg";
 
 const Banner = () => {
     const slides = [
         {
             id: 1,
-            image: "/src/assets/img1.jpg",
+            image: `${banner1}`,
             title: "Welcome to Baby Shop",
             description: "Find every thing for your baby",
         },
         {
             id: 2,
-            image: "/src/assets/img2.jpg",
+            image: `${banner2}`,
             title: "Welcome to Baby Shop",
             description: "Find every thing for your baby",
         },
         {
             id: 3,
-            image: "/src/assets/img3.jpg",
+            image: `${banner3}`,
             title: "Welcome to Baby Shop",
             description: "Find every thing for your baby",
         },
@@ -36,7 +39,7 @@ const Banner = () => {
                 effect="fade"
                 loop={true}
                 autoplay={{
-                    delay: 5000,
+                    delay: 6000,
                     disableOnInteraction: false,
                 }}
                 pagination={{

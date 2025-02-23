@@ -8,6 +8,9 @@ import Login from "../pages/Login/Login";
 import ProductDetails from "../components/ProductDetails/ProductDetails";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
+import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../layouts/Dashboard";
+import UserHome from "../pages/Dashboard/User/UserHome/UserHome";
 
 export const router = createBrowserRouter([
     {
@@ -43,6 +46,17 @@ export const router = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact></Contact>
+            }
+        ]
+    },
+    {
+        path: "dashboard",
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        errorElement: <Error></Error>,
+        children: [
+            {
+                path: "userHome",
+                element: <UserHome></UserHome>
             }
         ]
     }
