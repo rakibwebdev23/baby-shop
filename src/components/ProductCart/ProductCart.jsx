@@ -3,6 +3,7 @@ import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useCartCollection from "../../hooks/useCartCollection";
+import moment from "moment";
 
 const ProductCart = ({ item }) => {
     const { image, name, price, category, productNumber, _id } = item;
@@ -30,7 +31,7 @@ const ProductCart = ({ item }) => {
                 .then(res => {
                     if (res.data.insertedId) {
                         Swal.fire({
-                            position: "top-center",
+                            position: "center",
                             icon: "success",
                             title: `${name} added to your cart`,
                             showConfirmButton: false,
