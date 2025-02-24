@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAuth from "../../hooks/useAuth";
 import SocialSign from "../../components/SocialSign/SocialSign";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const Register = () => {
     const { createUser, updateUserProfile } = useAuth();
@@ -99,7 +99,7 @@ const Register = () => {
                                 className="absolute right-3 top-10 cursor-pointer"
                                 onClick={() => setShowPassword(!showPassword)}
                             >
-                                {showPassword ? <FaEye/>  : <FaEyeSlash/>}
+                                {showPassword ? <AiFillEyeInvisible size={24} />  : <AiFillEye size={24} />}
                             </span>
                             {errors.password && <span className="text-red-600 text-sm">{errors.password.message}</span>}
                         </div>

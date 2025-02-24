@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import SocialSign from "../../components/SocialSign/SocialSign";
 import { useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -63,7 +63,7 @@ const Login = () => {
                             className="absolute right-3 top-10 cursor-pointer text-gray-600"
                             onClick={() => setShowPassword(!showPassword)}
                         >
-                            {showPassword ? <FaEye /> : <FaEyeSlash />}
+                            {showPassword ? <AiFillEyeInvisible size={24} />  : <AiFillEye size={24} />}
                         </span>
                         {errors.password && <span className="text-red-600 text-sm">{errors.password.message}</span>}
                     </div>
