@@ -2,10 +2,15 @@ import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useCartCollection from "../../../../hooks/useCartCollection";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const MyCart = () => {
     const [carts, refetch] = useCartCollection();
     const axiosSecure = useAxiosSecure();
+
+    const orders = carts.reduce((total, item) => total + item.price, 0);
+    const allOrders = orders.toFixed(2);
+    const totalOrders = parseFloat(allOrders);
 
     const handleDeleteCart = (id) => {
         Swal.fire({
@@ -30,17 +35,19 @@ const MyCart = () => {
             }
         });
     };
-    
+
     return (
         <div className="min-h-screen bg-gray-100 py-8">
             <div className="container mx-auto px-4">
-                <h2 className="text-2xl lg:text-4xl font-semibold text-gray-800 mb-8 text-center">All Order Products</h2>
-                <div className="bg-white shadow-xl rounded-lg overflow-hidden">
-                    <div className="px-6 py-4 bg-[#FF8080]">
-                        <h2 className="text-3xl font-extrabold text-white text-center">
-                            My Carts
-                        </h2>
+                <div>
+                    <h2 className="text-2xl lg:text-4xl font-semibold text-gray-800 mb-8 text-center">My Carts</h2>
+                    <div className="lg:flex justify-between items-center py-6 px-4 text-xl font-semibold bg-[#ff8787] rounded-t-lg text-white">
+                        <p>Total Orders: {carts.length}</p>
+                        <p>Total Price: ${totalOrders}</p>
                     </div>
+                </div>
+                <div className="bg-white shadow-xl rounded-t-lg overflow-hidden">
+
                     <div className="overflow-x-auto">
                         <table className="min-w-full divide-y divide-gray-200">
                             <thead className="bg-[#FF8080] bg-opacity-10">
@@ -112,6 +119,7 @@ const MyCart = () => {
                                             </div>
                                         </td>
                                     </tr>
+
                                 ))}
                             </tbody>
                         </table>
@@ -121,6 +129,9 @@ const MyCart = () => {
                             No carts found
                         </div>
                     )}
+                    <button className="text-white text-center font-semibold px-6 py-3 bg-[#B3282D] w-full rounded-md">
+                        Checkout
+                    </button>
                 </div>
             </div>
         </div>
