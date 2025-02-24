@@ -72,8 +72,6 @@ const ProductCart = ({ item }) => {
                 <div className="h-8 flex items-center justify-center">
                     {/* visible on mobile but hidden on desktop  */}
                     <p className="text-sm font-bold text-[#ff7272] md:group-hover:hidden">$ {price}</p>
-
-                    {/* desktop hover show */}
                     <button
                         onClick={handleAddOrder}
                         className="hidden md:group-hover:block px-4 py-1 text-sm font-medium text-white bg-[#FF8080] hover:bg-[#f45e5e] rounded"
@@ -82,7 +80,6 @@ const ProductCart = ({ item }) => {
                     </button>
                 </div>
 
-                {/* mobile show */}
                 <div className="mt-2 md:hidden">
                     <button
                         onClick={handleAddOrder}
