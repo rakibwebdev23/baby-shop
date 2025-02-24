@@ -106,7 +106,7 @@ const Contact = () => {
                         <nav className="flex justify-center md:justify-start items-center space-x-4 sm:space-x-6 text-lg text-white/90">
                             <Link to="/" className="hover:text-[#f97373] transition-all duration-300">Home</Link>
                             <div className="w-1.5 h-1.5 rounded-full bg-rose-500 hidden sm:block" />
-                            <Link to="/shop" className="hover:text-[#f97373] transition-all duration-300">Go to Shop</Link>
+                            <Link to="/products" className="hover:text-[#f97373] transition-all duration-300">Go to Shop</Link>
                         </nav>
                     </div>
                 </div>
