@@ -22,7 +22,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className="bg-white/90 shadow py-4 w-full">
+        <div className="bg-white/90 shadow py-2 lg:py-4 w-full">
             <Container>
                 <div className="navbar text-black">
                     {/* Mobile Menu */}
@@ -72,13 +72,13 @@ const Navbar = () => {
                             user ? <>
                                 <Link onClick={() => handleLogOut()} className="py-2 px-4 lg:px-6 rounded ml-2 bg-[#FF8080] text-white hover:bg-[#f97373]">Log Out</Link>
                                 {user.photoURL && (
-                                    <div className="avatar ml-4">
+                                    <div className="avatar ml-4 hidden lg:block">
                                         <div className="w-12 rounded-full">
                                             <img src={user.photoURL} alt="User Avatar" />
                                         </div>
                                     </div>
                                 )}
-                            </> : <Link to="/login" className="py-2 px-4 lg:px-6 rounded ml-2 bg-[#FF8080] text-white hover:bg-[#f97373]">Login</Link>
+                            </> : <Link to="/login" className="lg:py-2 py-1 px-2 lg:px-6 rounded ml-2 bg-[#FF8080] text-white hover:bg-[#f97373]">Login</Link>
                         }
                     </div>
                 </div>
